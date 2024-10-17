@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jaya Surya S Portfolio - Aspiring Software Engineer">
+  <title>Jaya Surya S | Software Engineer Portfolio</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <h1>Jaya Surya S</h1>
+    <p>Aspiring Software Engineer | Python, C, HTML, CSS</p>
+    <button id="theme-toggle">Toggle Theme</button>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="myphoto.jpg" alt="Jaya Surya" class="profile-pic">
+    <p>I am a results-driven software engineering student with hands-on experience in programming, software development, and problem-solving. I have a passion for building solutions using Python, IoT, and web development technologies.</p>
+    <p><strong>Education:</strong> B.E. in Electronics and Communication Engineering (Sri Sairam Engineering College)</p>
+    <p><strong>Skills:</strong> Python, C, HTML, CSS, Git, IoT, Automation</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>IoT-Based River Cleaning System</h3>
+      <p>Developed an IoT-enabled river cleaning boat using Python for automation and sensor integration, aimed at environmental conservation.</p>
+    </div>
+
+    <div class="project">
+      <h3>Website Development Portfolio</h3>
+      <p>Built this personal portfolio using HTML, CSS, and JavaScript to showcase projects and skills with a focus on user-friendly design and efficient code.</p>
+    </div>
+
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume">
+    <h2>Resume</h2>
+    <a href="JS_Resume.pdf" download>Download My Resume</a>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <form id="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" title="Go to top">Top</button>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Jaya Surya S. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Smooth Scrolling, Back to Top Button, and Theme Toggle -->
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Back to Top Button
+    let topButton = document.getElementById("back-to-top");
+
+    // Show button on scroll
+    window.onscroll = function() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        topButton.style.display = "block";
+      } else {
+        topButton.style.display = "none";
+      }
+    };
+
+    // Scroll to top when button clicked
+    topButton.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Form validation
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      let name = document.getElementById('name').value;
+      let email = document.getElementById('email').value;
+      let message = document.getElementById('message').value;
+
+      if (name === '' || email === '' || message === '') {
+        event.preventDefault(); // Prevent form from submitting
+        alert('Please fill out all fields');
+      } else {
+        alert('Form submitted successfully!');
+      }
+    });
+
+    // Toggle between light and dark themes
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener('click', function() {
+      document.body.classList.toggle("dark-mode");
+      document.querySelector("header").classList.toggle("dark-mode");
+      document.querySelectorAll(".project").forEach(project => {
+        project.classList.toggle("dark-mode");
+      });
+    });
+  </script>
+
+</body>
+</html>
